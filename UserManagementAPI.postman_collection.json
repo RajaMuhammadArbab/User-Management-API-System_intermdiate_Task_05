@@ -1,0 +1,129 @@
+{
+    "info": {
+        "name": "User Management API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Postman collection demonstrating profile updates, password change, and soft delete."
+    },
+    "item": [
+        {
+            "name": "Get Profile",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/auth/profile/",
+                    "protocol": "http",
+                    "host": [
+                        "127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "profile"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update Profile",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"first_name\": \"Updated\",\n    \"last_name\": \"User\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/auth/profile/",
+                    "protocol": "http",
+                    "host": [
+                        "127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "profile"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Change Password",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"current_password\": \"oldpassword123\",\n    \"new_password\": \"NewStrongPass123\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/auth/profile/password/",
+                    "protocol": "http",
+                    "host": [
+                        "127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "profile",
+                        "password"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Soft Delete Account",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/auth/profile/delete/",
+                    "protocol": "http",
+                    "host": [
+                        "127.0.0.1:8000"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "profile",
+                        "delete"
+                    ]
+                }
+            }
+        }
+    ]
+}
